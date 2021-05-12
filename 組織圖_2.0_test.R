@@ -10,7 +10,7 @@ library(networkD3)
 library(tibble)
 library(magrittr) 
 
-x <- "//wnspwfis02/EXE-Office/KM/資料交換區/xx"
+x <- "//KM/資料交換區/xx"
 setwd(gsub("\\\\", "/", x))
 
 office="xx1"
@@ -50,10 +50,6 @@ nodes$color =cut(as.numeric(nodes$RISK), breaks=c(0, 0.5, 0.8, 1.0),
 nodes$shape <- factor(nodes$Contract_level_desc, 
   levels=c("通訊處經理", "通訊處總監", "績優區經理", "區經理", "業務襄理", "業務主任","業務代表", "業務專員"), 
   labels=c("star", "star", "diamond", "diamond", "triangle", "dot", "dot", "dot"))
-
-# nodes$color <- factor(nodes$Contract_level_desc, 
-#                       levels=c("通訊處經理", "通訊處總監", "績優區經理", "區經理", "業務襄理", "業務主任","業務代表", "業務專員"), 
-#                       labels=c("purple", "purple", "red", "red", "slateblue1", "blue", "lightskyblue", "black"))
 
 
 class <- function(x) {
