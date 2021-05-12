@@ -13,15 +13,11 @@ x <- "/Users/glenn/Desktop/xxxx"
 setwd(x)
 
 ag_cd = "xxxx1"
-ag_cd = "xxxx2"
 
 edge_path= paste0("EDGE_", ag_cd, ".xlsx")
 node_path= paste0("NODE_", ag_cd, ".xlsx")
 edge <- read_excel(edge_path)
 node <- read_excel(node_path)
-
-# edge <- read_excel("EDGE.xlsx")
-# node <- read_excel("NODE.xlsx")
 
 nodes <- node %>% rowid_to_column("id")
 colnames(nodes)[2:3]<-c("label", "group")
@@ -87,8 +83,5 @@ net = graph_from_data_frame(edge,vertices = node,directed = T)
 
 colrs.v = c(AG = "blue", CELL = "yellow", CUST = "paleturquoise1", ADDR="red", POL="green") #node colours
 V(net)$color = colrs.v[V(net)$type]
-
-# colrs.e = c(CELL = "grey", CUST = "red", ADDR="yellow") #edge colours
-# E(net)$color = colrs.e[E(net)$type] 
 
 plot(net, edge.arrow.size=.3, vertex.size=10, vertex.label=NA) 
