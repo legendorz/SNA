@@ -10,7 +10,7 @@ library(networkD3)
 library(tibble)
 library(magrittr) 
 
-x <- "//wnspwfis02/EXE-Office/KM/資料交換區/xx"
+x <- "//xxxx/xx"
 setwd(gsub("\\\\", "/", x))
 
 office="xx1"
