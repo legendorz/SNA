@@ -64,27 +64,6 @@ nodes$title <- if (grepl("Y1", node_path, fixed=TRUE)) {
 #被申訴過的另外標顏色; NA押成0.1
 nodes$SCORE <- ifelse(is.na(nodes$Y)==TRUE, 0.1, ifelse(nodes$Y==1, -1, nodes$SCORE))
 
-#色彩學大師RJ
-# nodes$SCORE <- ifelse(nodes$SCORE==".", 0, nodes$SCORE)
-# nodes$color =cut(as.numeric(nodes$SCORE), breaks=c(0, 580, 620, 640, 648, 1000),
-#                  labels=c("#EFFFD7","#FFE153", "#FF7575", "#F00078", "#460046"), 
-#                  include.lowest=T)
-
-#Kevin版本
-# nodes$color <- if (grepl("Y1", node_path, fixed=TRUE)) {
-#       cut(as.numeric(nodes$SCORE), breaks=c(-1, 0, 580, 620, 640, 650, 1000),
-#       labels=c("#FFFF00", "#ADADAD","#9999FF", "#6666FF", "#8600FF", "#000000"), 
-#       include.lowest=T)
-#         } else if (grepl("Y2", node_path, fixed=TRUE)) {
-#       cut(as.numeric(nodes$SCORE), breaks=c(-1, 0, 565, 580, 595, 610, 1000),
-#       labels=c("#FFFF00", "#ADADAD","#9999FF", "#6666FF", "#8600FF", "#000000"), 
-#       include.lowest=T)
-#         } else {
-#       cut(as.numeric(nodes$SCORE), breaks=c(-1, 0, 525, 545, 580, 600, 1000),
-#       labels=c("#FFFF00", "#ADADAD","#9999FF", "#6666FF", "#8600FF", "#000000"), 
-#       include.lowest=T)
-#         }
-
 nodes$color <- cut(as.numeric(nodes$SCORE), breaks=c(-1, 0, 10, 50, 150),
       labels=c("#FFFF00", "#ADADAD", "#FF7575", "#AE0000"), 
       include.lowest=T)
